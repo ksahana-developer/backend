@@ -3,8 +3,10 @@ const path = require('path');
 const fs = require('fs');
 const YTDlpWrap = require('yt-dlp-wrap').default;
 const cors = require('cors')
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.use(cors())
 // Initialize yt-dlp-wrap with the path to the yt-dlp binary
 const ytDlpWrap = new YTDlpWrap(path.resolve(__dirname, 'yt-dlp'));
